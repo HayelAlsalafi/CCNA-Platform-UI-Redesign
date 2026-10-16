@@ -54,70 +54,88 @@ export function CurriculumView({
   }, [domainId]);
   return (
     <>
-      <div className="curriculum-grid" aria-label="Six CCNA domains">
-        {data.domains.map((d) => {
-          const domainChapters = d.sections.flatMap((s) => s.chapters);
-          const domainTopics = data.topics.filter(
-            (t) =>
-              t.status === "ACTIVE" &&
-              t.chapterIds.some((id) => domainChapters.some((c) => c.id === id)),
-          );
-          return (
-            <button
-              key={d.id}
-              type="button"
-              className="curriculum-domain"
-              aria-expanded={domainId === d.id}
-              aria-controls="curriculum-panel"
-              onClick={(event) => {
-                selectedButton.current = event.currentTarget;
-                if (domainId === d.id) close();
-                else {
-                  setDomainId(d.id);
-                  setChapterId(null);
-                }
-              }}
-            >
-              <span className="curriculum-domain-top">
-                <span>DOMAIN {d.number}</span>
-                <ChevronRight size={18} aria-hidden="true" />
-              </span>
-              <h2>{d.title}</h2>
-              <p>{d.description}</p>
-              <span className="curriculum-domain-meta">
-                <span>{domainChapters.length} chapters</span>
-                <span>
-                  {domainTopics.reduce((n, t) => n + t.questionCount, 0)} published questions
+      <section className="curriculum-map" aria-labelledby="curriculum-map-title">
+        <div className="curriculum-map-heading">
+          <div>
+            <span className="curriculum-kicker">THE LEARNING MAP</span>
+            <h2 id="curriculum-map-title">Six domains. One connected field.</h2>
+          </div>
+          <p>Choose a domain to trace its sections, chapters and active learning topics.</p>
+        </div>
+        <div className="curriculum-grid" role="group" aria-label="Six CCNA domains">
+          {data.domains.map((d) => {
+            const domainChapters = d.sections.flatMap((s) => s.chapters);
+            const domainTopics = data.topics.filter(
+              (t) =>
+                t.status === "ACTIVE" &&
+                t.chapterIds.some((id) => domainChapters.some((c) => c.id === id)),
+            );
+            return (
+              <button
+                key={d.id}
+                type="button"
+                className="curriculum-domain"
+                aria-expanded={domainId === d.id}
+                aria-controls="curriculum-panel"
+                onClick={(event) => {
+                  selectedButton.current = event.currentTarget;
+                  if (domainId === d.id) close();
+                  else {
+                    setDomainId(d.id);
+                    setChapterId(null);
+                  }
+                }}
+              >
+                <span className="curriculum-domain-top">
+                  <span className="curriculum-domain-label">DOMAIN {d.number}</span>
+                  <span className="curriculum-domain-mark" aria-hidden="true">
+                    {String(d.number).padStart(2, "0")}
+                  </span>
                 </span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
+                <span className="curriculum-domain-title">{d.title}</span>
+                <span className="curriculum-domain-description">{d.description}</span>
+                <span className="curriculum-domain-meta">
+                  <span>{domainChapters.length} chapters</span>
+                  <span>
+                    {domainTopics.reduce((n, t) => n + t.questionCount, 0)} published questions
+                  </span>
+                </span>
+                <span className="curriculum-domain-open">
+                  Explore domain <ChevronRight size={15} aria-hidden="true" />
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
       {domain ? (
         <section
           id="curriculum-panel"
           className="curriculum-panel"
           aria-label={domain.title + " chapters"}
         >
-          <header>
-            <div>
-              <span className="curriculum-kicker">DOMAIN {domain.number}</span>
+          <header className="curriculum-panel-header">
+            <div className="curriculum-panel-title">
+              <span className="curriculum-kicker">DOMAIN {domain.number} / CHAPTER INDEX</span>
               <h2>{domain.title}</h2>
             </div>
             <button
               type="button"
-              className="button-quiet"
+              className="curriculum-collapse"
               aria-label="Collapse domain"
               onClick={close}
             >
-              <X size={16} /> Collapse
+              <X size={15} aria-hidden="true" /> <span>Collapse</span>
             </button>
           </header>
           <div className="curriculum-panel-body">
             <nav className="curriculum-chapters" aria-label="Sections and chapters">
+              <div className="curriculum-chapter-index">
+                <span>CONTENTS</span>
+                <span>{chapters.length} CHAPTERS</span>
+              </div>
               {domain.sections.map((s) => (
-                <section key={s.id}>
+                <section key={s.id} className="curriculum-section">
                   <h3>{s.title}</h3>
                   {s.chapters.map((c) => (
                     <button
@@ -129,13 +147,13 @@ export function CurriculumView({
                         onSelectChapter?.();
                       }}
                     >
-                      <span>
+                      <span className="curriculum-chapter-number">
                         {String(chapters.findIndex((item) => item.id === c.id) + 1).padStart(
                           2,
                           "0",
                         )}
                       </span>
-                      {c.title}
+                      <span className="curriculum-chapter-name">{c.title}</span>
                       <ChevronRight size={14} aria-hidden="true" />
                     </button>
                   ))}
@@ -145,34 +163,45 @@ export function CurriculumView({
             <article className="curriculum-details" aria-live="polite">
               {chapter ? (
                 <>
-                  <span className="curriculum-kicker">CHAPTER / LEARNING NAVIGATION</span>
-                  <h3>{chapter.title}</h3>
-                  <p>{chapter.description}</p>
+                  <div className="curriculum-detail-heading">
+                    <span className="curriculum-kicker">CHAPTER / LEARNING NAVIGATION</span>
+                    <h3>{chapter.title}</h3>
+                    <p>{chapter.description}</p>
+                  </div>
                   <div className="curriculum-detail-summary">
                     <span>
-                      <BookOpen size={15} />
+                      <BookOpen size={15} aria-hidden="true" />
                       {topics.reduce((n, t) => n + t.questionCount, 0)} published questions
                     </span>
-                    <span>Labs coming soon</span>
+                    <span className="curriculum-labs-status">Labs coming soon</span>
                   </div>
                   {!topics.length ? (
-                    <div className="curriculum-empty">
+                    <div className="curriculum-empty curriculum-empty-topics">
+                      <span className="curriculum-empty-index">NO ACTIVE TOPICS</span>
                       <h4>No topics available yet</h4>
                       <p>No questions available yet</p>
-                      <button disabled className="button-quiet">
+                      <button disabled className="curriculum-action-quiet">
                         Start Practice
                       </button>
                     </div>
                   ) : (
                     <ul className="curriculum-topic-list">
-                      {topics.map((t) => {
+                      {topics.map((t, index) => {
                         const metric = progress?.find((p) => p.topicId === t.id);
                         return (
                           <li key={t.id}>
+                            <div className="curriculum-topic-head">
+                              <span className="curriculum-topic-index">
+                                TOPIC {String(index + 1).padStart(2, "0")}
+                              </span>
+                              <span className="curriculum-topic-question-count">
+                                {t.questionCount} published questions
+                              </span>
+                            </div>
                             <h4>{t.name}</h4>
                             <p>{t.description}</p>
                             <div className="curriculum-topic-meta">
-                              <span>{t.questionCount} published questions</span>
+                              <span className="curriculum-coverage-label">QUESTION COVERAGE</span>
                               <span>
                                 {metric
                                   ? `${metric.coveredQuestionCount} of ${metric.availableQuestionCount} available questions attempted (${metric.coveragePercent}% coverage)`
@@ -182,22 +211,22 @@ export function CurriculumView({
                             <div className="curriculum-actions">
                               {t.questionCount > 0 ? (
                                 <Link
-                                  className="button-primary"
+                                  className="curriculum-action-primary"
                                   href={"/practice?topicId=" + encodeURIComponent(t.id)}
                                 >
-                                  Start Practice <ArrowRight size={14} />
+                                  Start Practice <ArrowRight size={14} aria-hidden="true" />
                                 </Link>
                               ) : (
                                 <>
                                   <span>No questions available yet</span>
-                                  <button disabled className="button-quiet">
+                                  <button disabled className="curriculum-action-quiet">
                                     Start Practice
                                   </button>
                                 </>
                               )}
                               {admin ? (
                                 <Link
-                                  className="button-quiet"
+                                  className="curriculum-action-quiet"
                                   href={"/admin/questions?topicId=" + encodeURIComponent(t.id)}
                                 >
                                   View Questions
@@ -210,14 +239,18 @@ export function CurriculumView({
                     </ul>
                   )}
                   <p className="curriculum-footnote">
-                    Chapters organize learning. Official exam objectives remain separate in exam
-                    taxonomy. Shared topics may appear in more than one chapter; domain counts count
-                    each topic once.
+                    Coverage describes how many available questions have been attempted; it is not
+                    accuracy or mastery. Chapters organize learning. Official exam objectives remain
+                    separate in exam taxonomy. Shared topics may appear in more than one chapter;
+                    domain counts count each topic once.
                   </p>
                 </>
               ) : (
-                <div className="curriculum-empty">
-                  <Layers3 size={28} aria-hidden="true" />
+                <div className="curriculum-empty curriculum-chapter-prompt">
+                  <span className="curriculum-empty-glyph" aria-hidden="true">
+                    <Layers3 size={22} />
+                  </span>
+                  <span className="curriculum-empty-index">CHAPTER NAVIGATION</span>
                   <h3>Select a chapter</h3>
                   <p>Explore topics and start practice without leaving the six-domain overview.</p>
                 </div>
@@ -226,7 +259,10 @@ export function CurriculumView({
           </div>
         </section>
       ) : (
-        <p className="curriculum-hint">Select a domain to explore its sections and chapters.</p>
+        <p className="curriculum-hint">
+          <span aria-hidden="true" />
+          Select a domain to open its chapter index.
+        </p>
       )}
     </>
   );
@@ -246,32 +282,52 @@ function MappingReview() {
   });
   return (
     <details className="curriculum-review" onToggle={(event) => setOpen(event.currentTarget.open)}>
-      <summary>Unmapped Topics / Admin review</summary>
+      <summary>
+        <span className="curriculum-review-summary-copy">
+          <span className="curriculum-kicker">ADMINISTRATOR / READ ONLY</span>
+          <strong>Unmapped Topics / Admin review</strong>
+        </span>
+        <span className="curriculum-review-toggle">Open report</span>
+      </summary>
       {open &&
         (query.isPending ? (
-          <p role="status">Loading mapping report…</p>
+          <p role="status" className="curriculum-review-state">
+            Loading mapping report…
+          </p>
         ) : query.isError ? (
-          <p role="alert">
-            Mapping report unavailable. <button onClick={() => void query.refetch()}>Retry</button>
+          <p role="alert" className="curriculum-review-state">
+            Mapping report unavailable.{" "}
+            <button type="button" onClick={() => void query.refetch()}>
+              Retry
+            </button>
           </p>
         ) : query.data ? (
           <>
-            <p>
-              {query.data.mapped.length} mapped · {query.data.unmapped.length} unmapped ·{" "}
-              {query.data.ambiguous.length} ambiguous. No records are modified here.
-            </p>
-            {[...query.data.unmapped, ...query.data.ambiguous].map((t) => (
-              <div key={t.id} className="curriculum-review-row">
-                <strong>{t.name}</strong>
-                <code>
-                  {t.id} / {t.slug}
-                </code>
-                <p>
-                  {t.status} · {t.reason}
-                </p>
-                <Link href="/admin/topics">Review in topic management</Link>
-              </div>
-            ))}
+            <div className="curriculum-review-report">
+              <p className="curriculum-review-totals">
+                <strong>{query.data.mapped.length}</strong> mapped
+                <span aria-hidden="true">/</span>
+                <strong>{query.data.unmapped.length}</strong> unmapped
+                <span aria-hidden="true">/</span>
+                <strong>{query.data.ambiguous.length}</strong> ambiguous
+              </p>
+              <p className="curriculum-review-readonly">No records are modified here.</p>
+              {[...query.data.unmapped, ...query.data.ambiguous].map((t) => (
+                <div key={t.id} className="curriculum-review-row">
+                  <div className="curriculum-review-row-heading">
+                    <strong>{t.name}</strong>
+                    <span>{t.status}</span>
+                  </div>
+                  <code>
+                    {t.id} / {t.slug}
+                  </code>
+                  <p>{t.reason}</p>
+                  <Link href="/admin/topics">
+                    Review in topic management <ArrowRight size={13} aria-hidden="true" />
+                  </Link>
+                </div>
+              ))}
+            </div>
           </>
         ) : null)}
     </details>
@@ -314,34 +370,100 @@ export function CurriculumExplorer() {
   return (
     <div className="page-wrap curriculum-page">
       <header className="curriculum-header">
-        <div>
-          <span className="curriculum-kicker">LEARN / CCNA 200-301</span>
-          <h1>Curriculum Explorer</h1>
+        <div className="curriculum-masthead-copy">
+          <div className="curriculum-kicker">
+            <span className="curriculum-kicker-mark" aria-hidden="true">
+              <Layers3 size={14} />
+            </span>
+            LEARN / CCNA 200-301
+          </div>
+          <h1>
+            The <em>curriculum</em>
+            <br />
+            in context.
+          </h1>
           <p>Six domains. A clear path through networking.</p>
-          {query.data?.counts && identity && !query.isError ? <p>{query.data.counts.mappedQuestions} mapped published questions · {query.data.counts.availableQuestions} available across active topics</p> : null}
+          {query.data?.counts && identity && !query.isError ? (
+            <p className="curriculum-catalog-counts">
+              <strong>{query.data.counts.mappedQuestions}</strong> mapped published questions
+              <span aria-hidden="true">/</span>
+              <strong>{query.data.counts.availableQuestions}</strong> available across active topics
+            </p>
+          ) : null}
         </div>
-        <span className="curriculum-edition">Learning navigation · v1</span>
+        <div className="curriculum-masthead-figure" aria-hidden="true">
+          <div className="curriculum-figure-caption">
+            <span>NETWORK STUDIES</span>
+            <span>200—301 / FIELD MAP</span>
+          </div>
+          <svg viewBox="0 0 460 220" role="presentation">
+            <path className="curriculum-circuit-line" d="M22 123h82l37-38h78l42 42h79l35-37h63" />
+            <path className="curriculum-circuit-line is-faint" d="M58 36h79l30 30h74l38-38h101" />
+            <path className="curriculum-circuit-line is-faint" d="M43 186h91l34-34h72l40 32h109" />
+            <path className="curriculum-circuit-line" d="M130 86v-20m89 61v42m121-42V80m-178-3v-28m85 5h36" />
+            <circle className="curriculum-circuit-ring" cx="104" cy="123" r="11" />
+            <circle className="curriculum-circuit-node" cx="104" cy="123" r="4" />
+            <circle className="curriculum-circuit-ring is-teal" cx="219" cy="127" r="18" />
+            <circle className="curriculum-circuit-node is-copper" cx="219" cy="127" r="7" />
+            <circle className="curriculum-circuit-ring" cx="340" cy="127" r="11" />
+            <circle className="curriculum-circuit-node" cx="340" cy="127" r="4" />
+            <circle className="curriculum-circuit-node is-copper" cx="58" cy="36" r="3" />
+            <circle className="curriculum-circuit-node" cx="380" cy="28" r="3" />
+            <circle className="curriculum-circuit-node" cx="43" cy="186" r="3" />
+            <circle className="curriculum-circuit-node is-copper" cx="399" cy="184" r="3" />
+            <text x="219" y="132" textAnchor="middle">IP</text>
+            <text x="20" y="112">ROUTING</text>
+            <text x="354" y="116">SWITCHING</text>
+          </svg>
+          <div className="curriculum-figure-footer">
+            <span>LEARNING NAVIGATION</span>
+            <span>EDITION {query.data?.version ?? "—"}</span>
+          </div>
+        </div>
       </header>
+      <div className="curriculum-header-rule" aria-hidden="true" />
       {!auth.isLoaded ? (
-        <p role="status">Checking your identity…</p>
+        <div role="status" className="curriculum-state curriculum-auth-state">
+          <span className="curriculum-state-mark" aria-hidden="true" />
+          <p>Checking your identity…</p>
+        </div>
       ) : !identity ? (
-        <div className="curriculum-empty">
-          <h2>Sign in to explore your curriculum</h2>
-          <Link className="button-primary" href="/sign-in">
-            Sign in
-          </Link>
+        <div className="curriculum-state curriculum-access-state">
+          <div className="curriculum-state-index">ACCESS / 01</div>
+          <div>
+            <span className="curriculum-kicker">YOUR LEARNING MAP</span>
+            <h2>Sign in to explore your curriculum</h2>
+            <p>Your six-domain learning navigation is ready when you are.</p>
+            <Link className="curriculum-action-primary" href="/sign-in">
+              Sign in <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       ) : query.isPending ? (
-        <div role="status" className="curriculum-empty">
-          Loading curriculum…
+        <div role="status" className="curriculum-state curriculum-loading-state">
+          <div className="curriculum-state-index">LOADING / CURRICULUM</div>
+          <div className="curriculum-loading-skeletons" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <p>Loading curriculum…</p>
         </div>
       ) : query.isError ? (
-        <div role="alert" className="curriculum-empty">
-          <h2>Curriculum could not be loaded</h2>
-          <p>Check your session and connection, then retry.</p>
-          <button className="button-quiet" onClick={() => void query.refetch()}>
-            Retry curriculum
-          </button>
+        <div role="alert" className="curriculum-state curriculum-error-state">
+          <div className="curriculum-state-index">CATALOG / UNAVAILABLE</div>
+          <div>
+            <span className="curriculum-kicker">CONNECTION INTERRUPTED</span>
+            <h2>Curriculum could not be loaded</h2>
+            <p>Check your session and connection, then retry.</p>
+            <button
+              type="button"
+              className="curriculum-action-quiet"
+              onClick={() => void query.refetch()}
+            >
+              Retry curriculum
+            </button>
+          </div>
         </div>
       ) : query.data ? (
         <CurriculumView
