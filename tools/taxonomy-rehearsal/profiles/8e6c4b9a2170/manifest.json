@@ -1,0 +1,82 @@
+{
+  "status": "PREPARATION_ONLY",
+  "workspace": "C:/Users/hayel/Desktop/CCNA-Platform",
+  "branch": "main",
+  "head": "03b14526aae448e49eacd602a43bfb0e355aca4d",
+  "postgresVersion": "18.6",
+  "postgresBin": "C:/Program Files/PostgreSQL/18/bin",
+  "host": "127.0.0.1",
+  "port": 55440,
+  "database": "ccna_taxonomy_rehearsal_20261012_8e6c4b9a2170",
+  "owner": "ccna_taxonomy_rehearsal_owner_8e6c4b9a2170",
+  "nonce": "8e6c4b9a2170",
+  "inputs": [
+    {
+      "path": "lib/db/drizzle/0000_baseline.sql",
+      "sha256": "b39fe82f5797542f49912d07408d96f8bac49a592263dde8082505ccea8d9bd4"
+    },
+    {
+      "path": "lib/db/drizzle/0001_question_domain.sql",
+      "sha256": "b3fee57baf66f4cb0d3cd27efee61d5508e93123b4ea6f42b120a78173a88a58"
+    },
+    {
+      "path": "lib/db/drizzle/0002_question_code_immutable.sql",
+      "sha256": "63dd70e696142401560e5d5063ca39d0498107b9e67ae8cdf2756c352709b28f"
+    },
+    {
+      "path": "lib/db/drizzle/0003_practice_attempts.sql",
+      "sha256": "0117dfe4623e214b59f806b70dc684bdc963c25bb83895c327ea86b10fbc6a3d"
+    },
+    {
+      "path": "lib/db/drizzle/0004_question_revisions.sql",
+      "sha256": "5c6614d26e7d37171fb66f86c05d646ce83b81861a0c4f964c720b2f193abcd5"
+    },
+    {
+      "path": "lib/db/drizzle/proposed/0005_exam_taxonomy.sql",
+      "sha256": "d1d40e488a00c14c7958dc5b1f83bda5e4bb420a4d05974ae92c3f6ca0027226"
+    },
+    {
+      "path": "lib/db/drizzle/meta/_journal.json",
+      "sha256": "02aefba5b1c69997d16496d6a430ffc11fd3d929c5e15ed38ebfb4085058d45a"
+    },
+    {
+      "path": "lib/db/drizzle/meta/0000_snapshot.json",
+      "sha256": "1461dc2f7fb36810b89d25270d83ead5f76d10b3c9e16f111e333fadbdd30830"
+    },
+    {
+      "path": "lib/db/drizzle/meta/0001_snapshot.json",
+      "sha256": "e6ab7360a68e756282a9535c286af2fa45feb3a91dc8ab7ed9992317416a48a4"
+    },
+    {
+      "path": "lib/db/drizzle/meta/0002_snapshot.json",
+      "sha256": "bbbe12197ff8701905e0daaa1a7189a2ec30b32278fc2d4d6fd152ad8829b97e"
+    },
+    {
+      "path": "lib/db/drizzle/meta/0004_snapshot.json",
+      "sha256": "1ff6458ee4ee6eb5bfa10796e6e40d40ba9ad5dcb87d64282c319ae4e30c6014"
+    }
+  ],
+  "profileId": "8e6c4b9a2170",
+  "sourceInputs": [
+    {
+      "path": "tools/taxonomy-rehearsal/manifest.json",
+      "sha256": "b0a856600a3b95b8d27df8781649d6249dcb992e1476f89e9b005a5fe55c806f"
+    },
+    {
+      "path": "tools/taxonomy-rehearsal/rehearsal.mjs",
+      "sha256": "4092bed89d5135ba6d1a54ef1d8b7226896c27d05e93b07ab149c420b302332d"
+    },
+    {
+      "path": "tools/taxonomy-rehearsal/safety.mjs",
+      "sha256": "2fb6efabfeb85cb09802de331bf70cd9553b88a8adbc489e08080a51605b88f3"
+    },
+    {
+      "path": "tools/taxonomy-rehearsal/profiles/8e6c4b9a2170/rehearsal.mjs",
+      "sha256": "f8fb5c3c9b74360fdb2a4235d51589ebee37e938560098c740ca9c73dd29c31a"
+    },
+    {
+      "path": "tools/taxonomy-rehearsal/profiles/8e6c4b9a2170/create-environment.ps1",
+      "sha256": "91b4c520a3fe5ba857cb293f03be244316bf4a312f99efc84f4577ab345491da"
+    }
+  ]
+}

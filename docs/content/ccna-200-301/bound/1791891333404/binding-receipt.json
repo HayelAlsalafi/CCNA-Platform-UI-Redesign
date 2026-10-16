@@ -1,0 +1,60 @@
+{
+  "packId": "ccna-200-301-v1.1-sprint7-pilot-v1",
+  "bindings": {
+    "packId": "ccna-200-301-v1.1-sprint7-pilot-v1",
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainIds": {
+      "1.0": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+      "2.0": "8ce97953-91f4-4755-a340-38a7c12905ee",
+      "3.0": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+      "4.0": "82077fb6-1651-498e-a9a7-36a40c635124",
+      "5.0": "13487cef-6bad-43b3-b91d-a53ba3481406",
+      "6.0": "71d7474c-14c8-4ee2-899f-749378ad7d53"
+    },
+    "topicIds": {
+      "ccna-v1-1-s7-network-devices": "904fa52e-3931-4c8d-9331-2741af3c1159",
+      "ccna-v1-1-s7-media-and-transport": "560ffcfb-ef0e-4580-b4c9-7698ff061750",
+      "ccna-v1-1-s7-ipv4-subnetting": "f462d150-325d-4e7b-a673-d9b7133c9963",
+      "ccna-v1-1-s7-ipv6-addressing": "e5a61eb2-b735-4ebd-bacd-a1f90187ac32",
+      "ccna-v1-1-s7-vlans-and-trunks": "07288263-c6d1-4638-b8e1-2fed64c0413e",
+      "ccna-v1-1-s7-stp-and-etherchannel": "eb6918b3-8c7f-4ac6-997a-c5c699994cca",
+      "ccna-v1-1-s7-discovery-and-management": "35e711d8-9bf5-4aa0-aac7-8dc1ca5cc79a",
+      "ccna-v1-1-s7-controller-wlan": "dd6fb51d-7f64-4734-80e2-f0726b211846",
+      "ccna-v1-1-s7-routing-table": "7bed0879-0077-4347-a872-724d363305c5",
+      "ccna-v1-1-s7-static-routing": "511b7bdc-0ce3-46f3-a0ea-b2caea1b301b",
+      "ccna-v1-1-s7-ospfv2": "ecaebdbe-f00c-48f9-a080-f54b0135f6ae",
+      "ccna-v1-1-s7-first-hop-redundancy": "b36e23c9-b663-44ce-bbc8-c41b11e07c7a",
+      "ccna-v1-1-s7-inside-source-nat": "d3f3a070-a2b5-49a8-aef3-b9b0181ea45a",
+      "ccna-v1-1-s7-dhcp-and-dns": "b3359a17-5b90-47e3-9056-4afc3e43ff95",
+      "ccna-v1-1-s7-monitoring-and-time": "74b18739-7877-4397-93f9-a6ae95afe5aa",
+      "ccna-v1-1-s7-qos-and-secure-operations": "36774d45-3f80-4879-a33e-a5d98a027409",
+      "ccna-v1-1-s7-risk-and-device-access": "e8c0e171-ca89-4587-bd2b-60c7cf1e85e3",
+      "ccna-v1-1-s7-acls-and-vpns": "04f55164-c721-44fb-9db4-b8e8891269ad",
+      "ccna-v1-1-s7-layer2-security": "621df2fc-06db-42b3-89d3-19f83e436ab4",
+      "ccna-v1-1-s7-aaa-and-wlan-security": "d538c5aa-28c9-42f8-bf3e-3f1b2f86250b",
+      "ccna-v1-1-s7-controller-automation": "28409767-7108-46f1-a102-9243d25cfe3e",
+      "ccna-v1-1-s7-rest-and-json": "05b695ad-aa55-44c9-84d6-11bc6ad9f5a1",
+      "ccna-v1-1-s7-ansible-and-terraform": "a599f7e8-c341-4e69-946f-1792c0e3d0da",
+      "ccna-v1-1-s7-ai-network-operations": "64a4f3e7-e4af-4152-8c45-707680a55d26"
+    }
+  },
+  "verification": "Offline shape check only; Admin preview verifies database membership.",
+  "sourceHashes": {
+    "source/curriculum.json": "9a12abdd8c215e02698d1db85d2b7975c4390bc0865d018be124b2c803818444",
+    "source/questions-d1.json": "336650597def1a410220a8e3ad16de0497b21867aec21711539d0ec66e7aa80b",
+    "source/questions-d2.json": "708456d23b7eb876fe2dac4ab30c92627aa7fd752e6846f93dae5bacc8ae4558",
+    "source/questions-d3.json": "842670540716699058ad6ade806236c0052147ea5441b16cdd10392a05f40e4b",
+    "source/questions-d4.json": "e2c5132a394836872d6ea628f6ef41c95c44a329a8a9ba61525ef7528548a929",
+    "source/questions-d5.json": "d4d4e1f63ac739bc8357975a2a4badabc6545da964d701a7c98038162f4da04d",
+    "source/questions-d6.json": "c1a50ef3db75a4a5eed45d3afc39d5ec49e5dcf70e93c54e3def47f945ee0eea",
+    "blueprint.create.json": "2713afcd43bc2668768de7523f42d3292b6249ad9c6feb73250b216d59750db2",
+    "domains.create.template.json": "5adad10596014dc727005f193bc1f2ffeff02d6ac3233f7bd86a8467da74ef72",
+    "objectives.create.template.json": "cd3c11df94d34c082cc62001655dbc405bc749b93b3eb954f15fa2366f70c8fe",
+    "topics.create.json": "494f0d746c63672fa40d4145e21608799f6ace82d5521224b6eb5a6dd470bfba",
+    "bindings.example.json": "ad653f99953b3785acf43085b2a93341cd3ed541492191ef14b7625913d12be0",
+    "questions.source.csv": "f2a8ededdee49a9097026309e954295adc3ebfadd0af72f2f8dc796543e8c33e",
+    "questions-review.md": "4dadf9e7b50b5bf5182e38d0a40aefe1c77563bdb65926a356a0800489e92362",
+    "curriculum-plan.md": "3a5829c568ec70c1b32579730a0a6e37bdbdab9b3b6a474fc1fdddd1610e731c",
+    "planned-changes.json": "4233e812373dc74f7fd769c3c2c29a468cb7161a455b37c498ede1a5acdd86ac"
+  }
+}

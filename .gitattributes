@@ -1,0 +1,26 @@
+/lib/db/drizzle/0004_question_revisions.sql text eol=lf
+/lib/db/drizzle/0006_controlled_history_delete.sql text eol=lf
+/lib/db/drizzle/meta/0006_snapshot.json text eol=lf
+/tools/phase8a-cleanup/final-provenance-amendments.json text eol=lf
+/lib/db/drizzle/proposed/0007_nexus_sessions.sql text eol=crlf
+/lib/db/drizzle/proposed/meta/0007_snapshot.json text eol=lf
+/lib/db/drizzle/proposed/meta/0007_journal.json text eol=lf
+/lib/db/drizzle/0007_nexus_sessions.sql text eol=crlf
+/lib/db/drizzle/meta/0007_snapshot.json text eol=lf
+/lib/db/drizzle/proposed/0008_learning_achievements.sql text eol=crlf
+/lib/db/drizzle/proposed/meta/0008_snapshot.json text eol=lf
+/lib/db/drizzle/proposed/meta/0008_journal.json text eol=lf
+/lib/db/drizzle/0008_learning_achievements.sql text eol=crlf
+/lib/db/drizzle/meta/0008_snapshot.json text eol=lf
+
+lib/db/drizzle/proposed/0009_multiple_answer_questions.sql text eol=lf
+lib/db/drizzle/proposed/meta/0009_snapshot.json text eol=lf
+lib/db/drizzle/proposed/meta/0009_journal.json text eol=lf
+
+lib/db/drizzle/proposed/0010_universal_question_deletion.sql text eol=lf
+lib/db/drizzle/proposed/meta/0010_snapshot.json text eol=lf
+lib/db/drizzle/proposed/meta/0010_journal.json text eol=lf
+/lib/db/drizzle/0009_multiple_answer_questions.sql text eol=lf
+/lib/db/drizzle/meta/0009_snapshot.json text eol=lf
+/lib/db/drizzle/0010_universal_question_deletion.sql text eol=lf
+/lib/db/drizzle/meta/0010_snapshot.json text eol=lf

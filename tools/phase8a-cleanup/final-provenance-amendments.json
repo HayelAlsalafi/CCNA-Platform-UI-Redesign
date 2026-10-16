@@ -1,0 +1,169 @@
+{
+  "sourceArchiveSha256": "de76195778fbe3a57d940892ee71f1904ec3d94aa6c8fd8d773657d438ce1d13",
+  "diagnosticReportSha256": "2d6e3503432c02b079137fcfc83a48eb64e4c0f4442f755650507755f406abb1",
+  "diagnosticReport": "2026-10-14T08-37-27-017Z",
+  "reason": "Verified metadata-only updated_at changes on exclusively identified disposable fixtures; no content, mapping, options or disposable history differences.",
+  "entries": [
+    {
+      "table": "questions",
+      "id": "03a44178-97e4-4231-a539-3af180fe5e11",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.887Z",
+      "actual": "2026-10-13T17:29:01.938Z"
+    },
+    {
+      "table": "questions",
+      "id": "1a261298-e196-4a29-ab64-62124e595bf0",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:20:26.256Z",
+      "actual": "2026-10-13T17:28:16.919Z"
+    },
+    {
+      "table": "questions",
+      "id": "31909a92-c222-4801-a860-8d6488f11900",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.892Z",
+      "actual": "2026-10-13T17:28:16.92Z"
+    },
+    {
+      "table": "questions",
+      "id": "34db915a-ffe6-44d3-86cd-0d6f68237101",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.915Z",
+      "actual": "2026-10-13T17:28:16.921Z"
+    },
+    {
+      "table": "questions",
+      "id": "370fe0e1-3d6e-41d9-b272-60ed1f311d99",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:35:19.856Z",
+      "actual": "2026-10-13T17:28:16.922Z"
+    },
+    {
+      "table": "questions",
+      "id": "371f2a77-3658-4bfc-89a7-9e3929b34633",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:24:54.273Z",
+      "actual": "2026-10-13T17:28:16.923Z"
+    },
+    {
+      "table": "questions",
+      "id": "3ddffec2-a833-4518-b338-7b7729be1de7",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:33:35.215Z",
+      "actual": "2026-10-13T17:28:16.925Z"
+    },
+    {
+      "table": "questions",
+      "id": "4e853e01-ce1a-40ef-b8d1-551f68c6c7a3",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.896Z",
+      "actual": "2026-10-13T17:28:16.926Z"
+    },
+    {
+      "table": "questions",
+      "id": "6d4ece2f-e802-446f-b822-6cbf8a6b6274",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:31:03.67Z",
+      "actual": "2026-10-13T17:28:16.927Z"
+    },
+    {
+      "table": "questions",
+      "id": "71b924f2-701b-4bbc-8050-5faad5ee6d94",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.92Z",
+      "actual": "2026-10-13T17:28:16.928Z"
+    },
+    {
+      "table": "questions",
+      "id": "7b985558-7c56-427d-b24b-1c2b12e5efc9",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:25:12.816Z",
+      "actual": "2026-10-13T17:28:16.929Z"
+    },
+    {
+      "table": "questions",
+      "id": "88c1fb65-de85-4d82-a27f-5ede052f3b1e",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:30:58.755Z",
+      "actual": "2026-10-13T17:28:16.929Z"
+    },
+    {
+      "table": "questions",
+      "id": "9b872189-26ef-474e-b8bc-3a2000fac33c",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:32:07.114Z",
+      "actual": "2026-10-13T17:28:16.93Z"
+    },
+    {
+      "table": "questions",
+      "id": "9dbd200b-6983-468b-966b-8366d28223e0",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.925Z",
+      "actual": "2026-10-13T17:28:16.931Z"
+    },
+    {
+      "table": "questions",
+      "id": "9e35fe2e-9840-43c8-b1bb-b472dac84f69",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:34:23.042496Z",
+      "actual": "2026-10-13T17:28:16.932Z"
+    },
+    {
+      "table": "questions",
+      "id": "a1a61d90-33d8-4eb6-bdf9-48c5482d1dd1",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:24:52.057Z",
+      "actual": "2026-10-13T17:28:16.933Z"
+    },
+    {
+      "table": "questions",
+      "id": "c56dc456-52ec-46cd-a504-90d2e8bb284d",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.907Z",
+      "actual": "2026-10-13T17:28:16.934Z"
+    },
+    {
+      "table": "questions",
+      "id": "d46d4881-dcd0-4b93-bfe9-c2472e234296",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:31:26.399Z",
+      "actual": "2026-10-13T17:28:16.934Z"
+    },
+    {
+      "table": "questions",
+      "id": "d704910b-4fdc-462f-9f8a-8b97d63678bd",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.902Z",
+      "actual": "2026-10-13T17:28:16.935Z"
+    },
+    {
+      "table": "questions",
+      "id": "f24cba52-25ef-4333-8567-1c5c3649ff23",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:36:42.633Z",
+      "actual": "2026-10-13T17:28:16.936Z"
+    },
+    {
+      "table": "topics",
+      "id": "01aca52d-3b7d-4b1c-b084-fa71eef4d507",
+      "field": "updated_at",
+      "expected": "2026-10-11T12:15:46.946Z",
+      "actual": "2026-10-13T20:16:35.446Z"
+    },
+    {
+      "table": "topics",
+      "id": "76070780-14a4-464f-aca9-71e417338927",
+      "field": "updated_at",
+      "expected": "2026-10-11T06:22:02.367Z",
+      "actual": "2026-10-13T17:25:05.984Z"
+    },
+    {
+      "table": "topics",
+      "id": "a29d0290-817d-4ce3-9cdd-1b4707794d6b",
+      "field": "updated_at",
+      "expected": "2026-10-11T06:21:53.713294Z",
+      "actual": "2026-10-13T20:14:27.941Z"
+    }
+  ]
+}

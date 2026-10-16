@@ -1,0 +1,105 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+*.tsbuildinfo
+.expo
+.expo-shared
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+# Replit
+.cache/
+.local/
+
+# Local environment secrets
+.env
+.env.local
+.env.*.local
+
+# Sensitive files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*
+*secrets*
+
+# Local databases and backups
+*.db
+*.sqlite
+*.sqlite3
+*.backup
+*.dump
+
+# Dependencies and generated files
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.local/
+%SystemDrive%/
+
+# Local Git worktree backup
+.git-worktree-link.backup
+
+# Temporary script backups
+*.before-*.bak
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Additional upload safety
+.env.example
+.npmrc
+.git-worktree-link.backup
+
+# Files requiring credential review
+artifacts/api-server/src/lib/admin-history-delete.test.ts
+artifacts/api-server/src/lib/env.test.ts
+docs/deployment/environment.md
+tools/phase6a-local/policy.test.mjs
+tools/phase6a-local/upgrade.test.mjs
+
+# Local assets and generated files
+attached_assets/

@@ -1,0 +1,44 @@
+[
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "1.0",
+    "name": "Network Fundamentals",
+    "weightPercent": 20,
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "2.0",
+    "name": "Network Access",
+    "weightPercent": 20,
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "3.0",
+    "name": "IP Connectivity",
+    "weightPercent": 25,
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "4.0",
+    "name": "IP Services",
+    "weightPercent": 10,
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "5.0",
+    "name": "Security Fundamentals",
+    "weightPercent": 15,
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "code": "6.0",
+    "name": "Automation and Programmability",
+    "weightPercent": 10,
+    "displayOrder": 6
+  }
+]

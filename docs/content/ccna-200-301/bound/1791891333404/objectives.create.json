@@ -1,0 +1,426 @@
+[
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.1",
+    "description": "Network components",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.2",
+    "description": "Topology designs",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.3",
+    "description": "Link media",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.4",
+    "description": "Interface faults",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.5",
+    "description": "Transport protocols",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.6",
+    "description": "IPv4 subnetting",
+    "displayOrder": 6
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.7",
+    "description": "Private IPv4",
+    "displayOrder": 7
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.8",
+    "description": "IPv6 configuration",
+    "displayOrder": 8
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.9",
+    "description": "IPv6 categories",
+    "displayOrder": 9
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.10",
+    "description": "Host addressing",
+    "displayOrder": 10
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.11",
+    "description": "Wireless principles",
+    "displayOrder": 11
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.12",
+    "description": "Virtualization basics",
+    "displayOrder": 12
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "ddae2f48-9b6e-48d8-a05d-9f7a889bec60",
+    "domainCode": "1.0",
+    "code": "1.13",
+    "description": "Ethernet forwarding",
+    "displayOrder": 13
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.1",
+    "description": "VLAN configuration",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.2",
+    "description": "Trunk connectivity",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.3",
+    "description": "Neighbor discovery",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.4",
+    "description": "LACP aggregation",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.5",
+    "description": "Spanning tree",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.6",
+    "description": "Wireless architectures",
+    "displayOrder": 6
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.7",
+    "description": "Wireless infrastructure",
+    "displayOrder": 7
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.8",
+    "description": "Management access",
+    "displayOrder": 8
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "8ce97953-91f4-4755-a340-38a7c12905ee",
+    "domainCode": "2.0",
+    "code": "2.9",
+    "description": "WLAN settings",
+    "displayOrder": 9
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+    "domainCode": "3.0",
+    "code": "3.1",
+    "description": "Routing entries",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+    "domainCode": "3.0",
+    "code": "3.2",
+    "description": "Route selection",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+    "domainCode": "3.0",
+    "code": "3.3",
+    "description": "Static routing",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+    "domainCode": "3.0",
+    "code": "3.4",
+    "description": "OSPF operations",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "12d006a2-0f38-44f2-bbc8-297ece3dc396",
+    "domainCode": "3.0",
+    "code": "3.5",
+    "description": "Gateway redundancy",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.1",
+    "description": "Address translation",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.2",
+    "description": "Time synchronization",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.3",
+    "description": "Address/name services",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.4",
+    "description": "SNMP monitoring",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.5",
+    "description": "Event logging",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.6",
+    "description": "DHCP operation",
+    "displayOrder": 6
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.7",
+    "description": "Traffic treatment",
+    "displayOrder": 7
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.8",
+    "description": "SSH administration",
+    "displayOrder": 8
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "82077fb6-1651-498e-a9a7-36a40c635124",
+    "domainCode": "4.0",
+    "code": "4.9",
+    "description": "File transfer",
+    "displayOrder": 9
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.1",
+    "description": "Risk concepts",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.2",
+    "description": "Security programs",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.3",
+    "description": "Local credentials",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.4",
+    "description": "Credential policies",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.5",
+    "description": "Encrypted tunnels",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.6",
+    "description": "Packet filtering",
+    "displayOrder": 6
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.7",
+    "description": "Switch protections",
+    "displayOrder": 7
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.8",
+    "description": "AAA distinctions",
+    "displayOrder": 8
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.9",
+    "description": "Wireless protection",
+    "displayOrder": 9
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "13487cef-6bad-43b3-b91d-a53ba3481406",
+    "domainCode": "5.0",
+    "code": "5.10",
+    "description": "WLAN authentication",
+    "displayOrder": 10
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.1",
+    "description": "Automated operations",
+    "displayOrder": 1
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.2",
+    "description": "Control approaches",
+    "displayOrder": 2
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.3",
+    "description": "Software-defined architecture",
+    "displayOrder": 3
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.4",
+    "description": "Intelligent operations",
+    "displayOrder": 4
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.5",
+    "description": "Web APIs",
+    "displayOrder": 5
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.6",
+    "description": "Configuration tools",
+    "displayOrder": 6
+  },
+  {
+    "blueprintId": "a12b45f9-6e32-479a-b79a-b15a98cb0c1f",
+    "domainId": "71d7474c-14c8-4ee2-899f-749378ad7d53",
+    "domainCode": "6.0",
+    "code": "6.7",
+    "description": "JSON structure",
+    "displayOrder": 7
+  }
+]
