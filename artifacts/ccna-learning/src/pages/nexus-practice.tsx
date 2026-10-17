@@ -35,6 +35,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "../components/ui/alert-dialog";
+import "./nexus-practice.css";
 
 export function NexusPractice() {
   const identity = useNexusIdentity();
@@ -370,7 +371,7 @@ function NexusPracticeActor() {
     </>
   );
   return (
-    <div className="nexus-page">
+    <div className="nexus-page ccna-practice">
       <NetworkHero
         compact
         eyebrow="NETWORK CHALLENGE ARENA"
@@ -648,7 +649,32 @@ function NexusPracticeActor() {
           ) : (
             q && (
               <>
-                <div className="nexus-section-heading">
+                <div className="practice-session-progress" role="group" aria-label="Practice session progress">
+                  <div className="practice-progress-heading">
+                    <span>Session progress</span>
+                    <strong>
+                      {answered} of {run.questions.length} answered
+                    </strong>
+                  </div>
+                  <div
+                    className="practice-progress-track"
+                    role="progressbar"
+                    aria-label="Questions answered"
+                    aria-valuemin={0}
+                    aria-valuemax={run.questions.length}
+                    aria-valuenow={answered}
+                  >
+                    <span
+                      style={{
+                        width: `${(answered / run.questions.length) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <small>
+                    Question {index + 1} of {run.questions.length}
+                  </small>
+                </div>
+                <div className="nexus-section-heading practice-session-heading">
                   <div>
                     <h2>
                       {run.mode.replaceAll("_", " ")} · Question {index + 1}/{run.questions.length}
@@ -832,7 +858,7 @@ function NexusPracticeActor() {
                   <aside className="nexus-panel nexus-desktop-navigator">{navigator}</aside>
                 </div>
                 <Sheet open={nav} onOpenChange={setNav}>
-                  <SheetContent>
+                  <SheetContent className="practice-navigation-sheet">
                     <SheetTitle>Question navigation</SheetTitle>
                     <SheetDescription>
                       Jump between questions; selected answers remain saved.
