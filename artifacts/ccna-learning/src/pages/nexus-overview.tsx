@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { ReactNode } from "react";
+import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { customFetch, type PracticeHistoryDetailsResponse } from "@workspace/api-client-react";
 import { sessionQueryKey } from "../lib/learning-progress-cache";
 import { useAuth, useUser } from "@clerk/react";
@@ -25,6 +25,15 @@ import { NetworkTopologyMap } from "../components/nexus-visuals";
 import { YearlyActivity, SkillMatrix, useLearnerProgress } from "../components/learning-evidence";
 import { Skeleton } from "../components/ui/skeleton";
 import "./nexus-overview.css";
+
+const overviewTabs = [
+  { id: "glance", label: "At a glance", testId: "link-overview-at-a-glance" },
+  { id: "topology", label: "Domain topology", testId: "link-overview-domain-topology" },
+  { id: "activity", label: "Activity", testId: "link-overview-activity" },
+  { id: "skills", label: "Skill evidence", testId: "link-overview-skill-evidence" },
+  { id: "next", label: "Next steps", testId: "link-overview-next-steps" },
+] as const;
+type OverviewTabId = (typeof overviewTabs)[number]["id"];
 
 function MetricReadout({
   index,
@@ -65,6 +74,8 @@ function OverviewSkeleton() {
 }
 
 export function NexusOverview() {
+  const [activeTab, setActiveTab] = useState<OverviewTabId>("glance");
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const progress = useLearnerProgress();
   const identity = useNexusIdentity();
   const auth = useAuth();
@@ -84,9 +95,29 @@ export function NexusOverview() {
         { signal, credentials: "same-origin", cache: "no-store" },
       ),
   });
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, currentIndex: number) => {
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % overviewTabs.length;
+    else if (event.key === "ArrowLeft")
+      nextIndex = (currentIndex - 1 + overviewTabs.length) % overviewTabs.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = overviewTabs.length - 1;
+    else return;
+
+    event.preventDefault();
+    setActiveTab(overviewTabs[nextIndex].id);
+    tabRefs.current[nextIndex]?.focus();
+  };
 
   return (
-    <div className="nexus-page ccna-overview">
+    <div
+      className={
+        "nexus-page ccna-overview" +
+        (auth.isLoaded && identity && data && !query.isPending && !query.isError
+          ? " has-overview-tabs"
+          : "")
+      }
+    >
       <header className="overview-masthead">
         <div className="overview-masthead-copy">
           <div className="overview-kicker">
@@ -185,17 +216,52 @@ export function NexusOverview() {
           <>
             <nav className="overview-section-nav" aria-label="Overview sections">
               <span className="overview-section-nav-label">ON THIS PAGE</span>
-              <a href="#overview-readings" data-testid="link-overview-at-a-glance">At a glance</a>
-              <a href="#overview-topology" data-testid="link-overview-domain-topology">Domain topology</a>
-              <a href="#overview-activity" data-testid="link-overview-activity">Activity</a>
-              <a href="#overview-skills" data-testid="link-overview-skill-evidence">Skill evidence</a>
-              <a href="#overview-next" data-testid="link-overview-next-steps">Next steps</a>
-              <Link href="/topics" data-testid="link-dashboard-curriculum-nav">
+              <div
+                className="overview-tabs"
+                role="tablist"
+                aria-label="Dashboard sections"
+                aria-orientation="horizontal"
+              >
+                {overviewTabs.map((tab, index) => (
+                  <button
+                    key={tab.id}
+                    ref={(element) => {
+                      tabRefs.current[index] = element;
+                    }}
+                    type="button"
+                    role="tab"
+                    id={`overview-tab-${tab.id}`}
+                    aria-selected={activeTab === tab.id}
+                    aria-controls={`overview-panel-${tab.id}`}
+                    tabIndex={activeTab === tab.id ? 0 : -1}
+                    className={activeTab === tab.id ? "is-active" : ""}
+                    data-testid={tab.testId}
+                    onClick={() => setActiveTab(tab.id)}
+                    onKeyDown={(event) => handleTabKeyDown(event, index)}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <Link
+                href="/topics"
+                className="overview-curriculum-nav-link"
+                data-testid="link-dashboard-curriculum-nav"
+              >
                 Browse curriculum <ArrowUpRight size={13} />
               </Link>
             </nav>
 
-            <section className="overview-readings" id="overview-readings" aria-label="Recorded learning at a glance">
+            <div className="overview-tab-panels">
+              <div
+                className="overview-tab-panel"
+                id="overview-panel-glance"
+                role="tabpanel"
+                aria-labelledby="overview-tab-glance"
+                tabIndex={0}
+                hidden={activeTab !== "glance"}
+              >
+            <section className="overview-readings" aria-label="Recorded learning at a glance">
               <div className="overview-readings-intro">
                 <span className="overview-eyebrow">SIGNALS, NOT ASSUMPTIONS</span>
                 <h2>Recorded<br />to date</h2>
@@ -234,16 +300,47 @@ export function NexusOverview() {
                 icon={<Activity size={17} />}
               />
             </section>
-
-            <div className="overview-module overview-topology" id="overview-topology">
-              <NetworkTopologyMap domains={data.domains} />
-            </div>
-
-            <div className="overview-evidence-pair">
-              <div className="overview-module overview-activity" id="overview-activity">
-                <YearlyActivity />
+            <footer className="overview-footnote">
+              <span><RadioTower size={13} /> CCNA 200-301 / NEXUS</span>
+              <span>Progress reflects saved evidence. It does not infer mastery or exam readiness.</span>
+            </footer>
               </div>
-              <div className="overview-module overview-skills" id="overview-skills">
+
+              <div
+                className="overview-tab-panel"
+                id="overview-panel-topology"
+                role="tabpanel"
+                aria-labelledby="overview-tab-topology"
+                tabIndex={0}
+                hidden={activeTab !== "topology"}
+              >
+                <div className="overview-module overview-topology">
+                  <NetworkTopologyMap domains={data.domains} />
+                </div>
+              </div>
+
+              <div
+                className="overview-tab-panel"
+                id="overview-panel-activity"
+                role="tabpanel"
+                aria-labelledby="overview-tab-activity"
+                tabIndex={0}
+                hidden={activeTab !== "activity"}
+              >
+                <div className="overview-module overview-activity">
+                  <YearlyActivity />
+                </div>
+              </div>
+
+              <div
+                className="overview-tab-panel"
+                id="overview-panel-skills"
+                role="tabpanel"
+                aria-labelledby="overview-tab-skills"
+                tabIndex={0}
+                hidden={activeTab !== "skills"}
+              >
+                <div className="overview-module overview-skills">
                 {progress.data ? (
                   <SkillMatrix data={progress.data} />
                 ) : progress.isError ? (
@@ -264,10 +361,18 @@ export function NexusOverview() {
                     <Skeleton className="h-64" />
                   </div>
                 )}
+                </div>
               </div>
-            </div>
 
-            <div className="overview-bottom-grid" id="overview-next">
+              <div
+                className="overview-tab-panel"
+                id="overview-panel-next"
+                role="tabpanel"
+                aria-labelledby="overview-tab-next"
+                tabIndex={0}
+                hidden={activeTab !== "next"}
+              >
+            <div className="overview-bottom-grid">
               <section className="nexus-panel overview-journey-panel">
                 <div className="nexus-section-heading">
                   <div>
@@ -411,10 +516,8 @@ export function NexusOverview() {
                 </p>
               </section>
             </div>
-            <footer className="overview-footnote">
-              <span><RadioTower size={13} /> CCNA 200-301 / NEXUS</span>
-              <span>Progress reflects saved evidence. It does not infer mastery or exam readiness.</span>
-            </footer>
+              </div>
+            </div>
           </>
         )
       )}
