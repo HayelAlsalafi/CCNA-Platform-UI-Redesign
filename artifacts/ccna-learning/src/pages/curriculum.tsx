@@ -37,6 +37,12 @@ export function CurriculumView({
   const domain = data.domains.find((d) => d.id === domainId);
   const chapters = domain?.sections.flatMap((s) => s.chapters) ?? [];
   const chapter = chapters.find((c) => c.id === chapterId);
+  const chapterTotal = data.domains.reduce(
+    (total, item) =>
+      total + item.sections.reduce((sectionTotal, section) => sectionTotal + section.chapters.length, 0),
+    0,
+  );
+  const activeTopicTotal = data.topics.filter((topic) => topic.status === "ACTIVE").length;
   const topics = data.topics.filter(
     (t) => t.status === "ACTIVE" && t.chapterIds.includes(chapterId ?? ""),
   );
@@ -57,10 +63,27 @@ export function CurriculumView({
       <section className="curriculum-map" aria-labelledby="curriculum-map-title">
         <div className="curriculum-map-heading">
           <div>
-            <span className="curriculum-kicker">THE LEARNING MAP</span>
-            <h2 id="curriculum-map-title">Six domains. One connected field.</h2>
+            <span className="curriculum-kicker">THE DOMAIN REGISTER</span>
+            <h2 id="curriculum-map-title">Six domains. One field guide.</h2>
           </div>
           <p>Choose a domain to trace its sections, chapters and active learning topics.</p>
+        </div>
+        <div className="curriculum-register" role="group" aria-label="Curriculum at a glance">
+          <div className="curriculum-register-item">
+            <span className="curriculum-register-index">01 / SCOPE</span>
+            <strong>{String(data.domains.length).padStart(2, "0")}</strong>
+            <span className="curriculum-register-label">CCNA domains</span>
+          </div>
+          <div className="curriculum-register-item">
+            <span className="curriculum-register-index">02 / STRUCTURE</span>
+            <strong>{chapterTotal}</strong>
+            <span className="curriculum-register-label">chapters</span>
+          </div>
+          <div className="curriculum-register-item">
+            <span className="curriculum-register-index">03 / CATALOG</span>
+            <strong>{activeTopicTotal}</strong>
+            <span className="curriculum-register-label">active topics</span>
+          </div>
         </div>
         <div className="curriculum-grid" role="group" aria-label="Six CCNA domains">
           {data.domains.map((d) => {
@@ -76,7 +99,7 @@ export function CurriculumView({
                 type="button"
                 className="curriculum-domain"
                 aria-expanded={domainId === d.id}
-                aria-controls="curriculum-panel"
+                aria-controls={domainId === d.id ? "curriculum-panel" : undefined}
                 onClick={(event) => {
                   selectedButton.current = event.currentTarget;
                   if (domainId === d.id) close();
@@ -95,13 +118,20 @@ export function CurriculumView({
                 <span className="curriculum-domain-title">{d.title}</span>
                 <span className="curriculum-domain-description">{d.description}</span>
                 <span className="curriculum-domain-meta">
-                  <span>{domainChapters.length} chapters</span>
                   <span>
-                    {domainTopics.reduce((n, t) => n + t.questionCount, 0)} published questions
+                    <strong>{domainChapters.length}</strong> chapters
+                  </span>
+                  <span>
+                    <strong>{domainTopics.length}</strong> active topics
+                  </span>
+                  <span>
+                    <strong>{domainTopics.reduce((n, t) => n + t.questionCount, 0)}</strong>{" "}
+                    published questions
                   </span>
                 </span>
                 <span className="curriculum-domain-open">
-                  Explore domain <ChevronRight size={15} aria-hidden="true" />
+                  {domainId === d.id ? "Domain open" : "Explore domain"}
+                  <ChevronRight size={15} aria-hidden="true" />
                 </span>
               </button>
             );
@@ -203,9 +233,23 @@ export function CurriculumView({
                             <div className="curriculum-topic-meta">
                               <span className="curriculum-coverage-label">QUESTION COVERAGE</span>
                               <span>
-                                {metric
-                                  ? `${metric.coveredQuestionCount} of ${metric.availableQuestionCount} available questions attempted (${metric.coveragePercent}% coverage)`
-                                  : "Learning progress unavailable"}
+                                {metric ? (
+                                  <span className="curriculum-coverage-readout">
+                                    <meter
+                                      className="curriculum-coverage-meter"
+                                      min={0}
+                                      max={100}
+                                      value={metric.coveragePercent}
+                                      aria-label={"Question coverage for " + t.name}
+                                    />
+                                    <span>
+                                      {metric.coveredQuestionCount} of {metric.availableQuestionCount}{" "}
+                                      available questions attempted ({metric.coveragePercent}% coverage)
+                                    </span>
+                                  </span>
+                                ) : (
+                                  "Learning progress unavailable"
+                                )}
                               </span>
                             </div>
                             <div className="curriculum-actions">
