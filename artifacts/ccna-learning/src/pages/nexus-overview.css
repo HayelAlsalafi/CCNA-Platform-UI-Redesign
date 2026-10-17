@@ -17,6 +17,52 @@
   font-family: var(--app-font-sans, "Plus Jakarta Sans", sans-serif);
 }
 
+.ccna-overview.has-overview-tabs {
+  height: calc(100vh - 68px);
+  height: calc(100dvh - 68px);
+  /* Keep the panel usable in short landscape windows; the page can then scroll. */
+  min-height: 480px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: clamp(10px, 1.4vh, 17px);
+  overflow: hidden;
+  padding: clamp(12px, 1.6vw, 22px) clamp(16px, 2.2vw, 34px);
+}
+
+.ccna-overview.has-overview-tabs .overview-masthead {
+  min-height: clamp(150px, 21vh, 195px);
+  padding: clamp(16px, 2vw, 26px);
+}
+
+.ccna-overview.has-overview-tabs .overview-masthead h1 {
+  margin: 15px 0 8px;
+  font-size: clamp(30px, 3.15vw, 44px);
+}
+
+.ccna-overview.has-overview-tabs .overview-masthead-copy > p {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.ccna-overview.has-overview-tabs .overview-actions {
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ccna-overview.has-overview-tabs .overview-primary-action,
+.ccna-overview.has-overview-tabs .overview-secondary-action {
+  min-height: 38px;
+  padding-inline: 13px;
+}
+
+.ccna-overview.has-overview-tabs .overview-network-figure {
+  width: min(100%, 365px);
+}
+
+.ccna-overview.has-overview-tabs .overview-network-figure svg {
+  max-height: 125px;
+}
+
 .ccna-overview,
 .ccna-overview * {
   box-sizing: border-box;
@@ -243,13 +289,12 @@
 
 .ccna-overview .overview-section-nav {
   display: flex;
-  min-height: 54px;
+  min-height: 44px;
   align-items: center;
-  gap: clamp(13px, 2.2vw, 30px);
-  overflow-x: auto;
-  padding: 0 4px;
+  gap: clamp(8px, 1.5vw, 20px);
+  min-width: 0;
+  padding: 0 2px;
   border-bottom: 1px solid var(--ov-line);
-  scrollbar-width: thin;
 }
 
 .ccna-overview .overview-section-nav-label {
@@ -258,26 +303,110 @@
   font-size: 8px;
 }
 
-.ccna-overview .overview-section-nav a {
-  display: inline-flex;
-  min-height: 44px;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 6px;
-  color: #52615f;
-  font-size: 11px;
-  font-weight: 650;
-  text-decoration: none;
-  transition: color .16s ease;
+.ccna-overview .overview-tabs {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: stretch;
+  gap: 3px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b9b2a4 transparent;
 }
 
-.ccna-overview .overview-section-nav a:hover {
+.ccna-overview .overview-tabs button {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(10px, 1.25vw, 17px);
+  color: #52615f;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 4px 10px 0 0;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.ccna-overview .overview-tabs button:hover {
+  color: var(--ov-rust-dark);
+  background: rgba(251, 250, 245, .72);
+}
+
+/* Keep the focus ring inside the horizontally scrolling tab strip. */
+.ccna-overview .overview-tabs button:focus-visible {
+  outline: 2px solid var(--ov-rust);
+  outline-offset: -4px;
+}
+
+.ccna-overview .overview-tabs button.is-active,
+.ccna-overview .overview-tabs button[aria-selected="true"] {
+  color: #7d3527;
+  border-color: #e3d7ca;
+  border-bottom-color: var(--ov-rust);
+  background: #fbfaf5;
+  box-shadow: 0 -2px 8px -7px rgba(32, 43, 54, .55);
+}
+
+.ccna-overview .overview-curriculum-nav-link {
+  display: inline-flex;
+  min-height: 38px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 8px;
+  color: var(--ov-teal);
+  font-size: 10px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ccna-overview .overview-curriculum-nav-link:hover {
   color: var(--ov-rust-dark);
 }
 
-.ccna-overview .overview-section-nav a:last-child {
-  margin-left: auto;
-  color: var(--ov-teal);
+.ccna-overview .overview-tab-panels {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+}
+
+.ccna-overview .overview-tab-panel {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 3px;
+  scrollbar-width: thin;
+  scrollbar-color: #b9b2a4 transparent;
+  scrollbar-gutter: stable;
+}
+
+.ccna-overview .overview-tab-panel[hidden] {
+  display: none !important;
+}
+
+.ccna-overview .overview-tab-panel:focus-visible {
+  outline: 2px solid var(--ov-rust);
+  outline-offset: -2px;
+}
+
+.ccna-overview .overview-tab-panel > .overview-module,
+.ccna-overview .overview-tab-panel > .overview-readings,
+.ccna-overview .overview-tab-panel > .overview-footnote,
+.ccna-overview .overview-tab-panel > .overview-bottom-grid {
+  scroll-margin-block: 8px;
 }
 
 .ccna-overview .overview-readings {
@@ -1105,6 +1234,71 @@
     gap: 8px;
     line-height: 1.6;
   }
+
+  .ccna-overview.has-overview-tabs {
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: 9px;
+    padding: 12px 13px;
+  }
+  .ccna-overview.has-overview-tabs .overview-masthead {
+    min-height: clamp(142px, 22vh, 185px);
+    padding: 18px 18px;
+  }
+  .ccna-overview.has-overview-tabs .overview-masthead h1 {
+    max-width: 580px;
+    margin: 12px 0 7px;
+    font-size: clamp(25px, 6vw, 35px);
+  }
+  .ccna-overview.has-overview-tabs .overview-masthead-copy > p {
+    max-width: 460px;
+    font-size: 11px;
+  }
+  .ccna-overview.has-overview-tabs .overview-network-figure {
+    right: -61px;
+    bottom: 2px;
+    width: 50%;
+    min-width: 205px;
+    opacity: .2;
+  }
+  .ccna-overview.has-overview-tabs .overview-actions {
+    margin-top: 12px;
+  }
+  .ccna-overview.has-overview-tabs .overview-section-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 5px;
+    min-height: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .ccna-overview.has-overview-tabs .overview-section-nav-label {
+    display: none;
+  }
+  .ccna-overview.has-overview-tabs .overview-tabs {
+    grid-column: 1;
+    min-height: 40px;
+    margin-right: 0;
+  }
+  .ccna-overview.has-overview-tabs .overview-tabs button {
+    min-height: 39px;
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+  .ccna-overview.has-overview-tabs .overview-curriculum-nav-link {
+    grid-column: 2;
+    min-height: 39px;
+    padding-inline: 4px;
+    font-size: 9px;
+  }
+  .ccna-overview.has-overview-tabs .overview-tab-panels {
+    min-height: 0;
+  }
+  .ccna-overview.has-overview-tabs .overview-readings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ccna-overview.has-overview-tabs .overview-readings-intro {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1140,6 +1334,45 @@
     font-size: 9px;
   }
   .ccna-overview .overview-panel-index { display: none; }
+
+  .ccna-overview.has-overview-tabs .overview-masthead {
+    min-height: 0;
+    padding: 16px 14px;
+  }
+  .ccna-overview.has-overview-tabs .overview-masthead h1 {
+    max-width: 100%;
+    font-size: clamp(24px, 7vw, 30px);
+  }
+  .ccna-overview.has-overview-tabs .overview-masthead-copy > p {
+    max-width: 100%;
+    font-size: 11px;
+  }
+  .ccna-overview.has-overview-tabs .overview-kicker {
+    font-size: 8px;
+  }
+  .ccna-overview.has-overview-tabs .overview-network-figure {
+    right: -112px;
+    width: 70%;
+    opacity: .12;
+  }
+  .ccna-overview.has-overview-tabs .overview-actions {
+    max-width: min(225px, 100%);
+  }
+  .ccna-overview.has-overview-tabs .overview-tabs button {
+    min-height: 44px;
+    padding-inline: 11px;
+    font-size: 11px;
+  }
+  .ccna-overview.has-overview-tabs .overview-section-nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ccna-overview.has-overview-tabs .overview-curriculum-nav-link {
+    grid-column: 1;
+    justify-self: end;
+    min-height: 28px;
+    gap: 3px;
+    font-size: 10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
